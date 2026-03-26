@@ -85,6 +85,30 @@ To review or modify news sources, see `references/sources.md` for the full sourc
 
 To add/remove feeds, edit the `FEEDS` dict in `scripts/fetch_feeds.py`. Each feed needs: `name`, `url`, `bias` (center/center-left/center-right), and `type`.
 
+## Hacker News Digest
+
+Fetch top stories from Hacker News via its public API (no keys needed).
+
+```bash
+# Top stories with 100+ points
+python3 scripts/fetch_hn.py --type top --limit 15 --min-score 100 --output text
+
+# Best stories (curated by HN)
+python3 scripts/fetch_hn.py --type best --limit 15 --min-score 100 --output text
+```
+
+### HN Digest Format
+
+```
+🟠 Hacker News Digest — [Date]
+
+• [Title] — ⬆️ [score] | 💬 [comments]
+  [1-sentence summary of why it's interesting if context is available]
+```
+
+Group by theme when possible (e.g., AI/ML, infrastructure, security, open source).
+Prioritize by score. Skip job postings and Show HN launches unless exceptionally popular.
+
 ## Key Rules
 
 - **No API keys** — everything uses public RSS feeds
