@@ -30,6 +30,8 @@ Ask your agent:
 
 Or set up a daily cron job for automatic delivery.
 
+By default, digests are delivered as clean summaries without links — easier to scan. Just ask "links" or "get me the links" and your agent will re-send the digest with source URLs included.
+
 ## Customization
 
 Edit `scripts/fetch_feeds.py` to add/remove RSS sources. Each feed entry needs:
